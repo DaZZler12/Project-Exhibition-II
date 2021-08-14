@@ -1,3 +1,2 @@
 # Project-Exhibition-II
-Name                                                  Role
-Abhirup Bhattacharya                  Group Leader, Lead programmer.
+Name: Abhirup Bhattacharya                 Role: Group Leader, Lead programmer.
