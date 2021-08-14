@@ -25,16 +25,16 @@ engine.setProperty('voice',voices[0].id)
 
 #-------------------------------------fore firebase configeration-------------------------------------------------------
 config = {
-    "apiKey": "AIzaSyCG8vnKG9jsujXuo2PzAwUq3lmO24gnwQQ",
-    "authDomain": "demoprojectexhibition.firebaseapp.com",
-    "databaseURL": "https://demoprojectexhibition-default-rtdb.firebaseio.com",
-    "projectId": "demoprojectexhibition",
-    "storageBucket": "demoprojectexhibition.appspot.com",
-    "messagingSenderId": "162571009017",
-    "appId": "1:162571009017:web:cbcee13787edb529e69b28"
+    "apiKey": "",       #--> Enter Api key
+    "authDomain": "",       #--> Enter authDomain
+    "databaseURL": "",          #--> Enter databaseURL
+    "projectId": "",            #--> Enter projectId
+    "storageBucket": "",           #--> Enter storageBucket        
+    "messagingSenderId": "",                               #--> Enter messagingSenderId
+    "appId": ""               #--> Enter appId
 }
-firebase = firebase.FirebaseApplication("https://demoprojectexhibition-default-rtdb.firebaseio.com/", None)
-blob = Blob.from_string("gs://demoprojectexhibition.appspot.com/uploads")
+firebase = firebase.FirebaseApplication("firebase url of ur project", None)
+blob = Blob.from_string("firestore url")
 #-----------------------------------------for firebase configeration-------------------------------------------------
 
 
@@ -203,9 +203,9 @@ def uploadM_to_firebase(MainA,date):
     Firebase = pyrebase.initialize_app(config)
     storage = Firebase.storage()
     blob = storage.child('uploads/' + MainA).put(MainA)
-    # data = {'name': "Date_" + date + "  Time_" + Hour + "-" + Minute + "-" + Second,'url': "https://firebasestorage.googleapis.com/v0/b/demoprojectexhibition.appspot.com/o/uploads%2FAttendance_"+ date +".xlsx?alt=media&token=" + blob['downloadTokens']}
+    edia&token=" + blob['downloadTokens']}
     data = {'name': "Date_" + date,
-            'url': "https://firebasestorage.googleapis.com/v0/b/demoprojectexhibition.appspot.com/o/uploads%2FAllmainAttandance%5CMainAttendance_" + date + ".xlsx?alt=media&token=" +
+            'url': "https://firebasestorage.googleapis.com/v0/b/firebase_project_name.appspot.com/o/uploads%2FAllmainAttandance%5CMainAttendance_" + date + ".xlsx?alt=media&token=" +
                    blob['downloadTokens']}
     result = firebase.post('/uploads', data)
     print(result)
@@ -215,9 +215,8 @@ def uploadP_to_firebase(MainP,date):
     Firebase = pyrebase.initialize_app(config)
     storage = Firebase.storage()
     blob = storage.child('uploads/' + MainP).put(MainP)
-    # data = {'name': "Date_" + date + "  Time_" + Hour + "-" + Minute + "-" + Second,'url': "https://firebasestorage.googleapis.com/v0/b/demoprojectexhibition.appspot.com/o/uploads%2FAttendance_"+ date +".xlsx?alt=media&token=" + blob['downloadTokens']}
     data = {'name': "Date_" + date,
-            'url': "https://firebasestorage.googleapis.com/v0/b/demoprojectexhibition.appspot.com/o/uploads%2FAllproxylist%5CProxylist_" + date + ".xlsx?alt=media&token=" +
+            'url': "https://firebasestorage.googleapis.com/v0/b/firebase_project_name.appspot.com/o/uploads%2FAllproxylist%5CProxylist_" + date + ".xlsx?alt=media&token=" +
                    blob['downloadTokens']}
     result = firebase.post('/proxy', data)
     print(result)
